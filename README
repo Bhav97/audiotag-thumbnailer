@@ -1,4 +1,5 @@
-A nautilus thumbnailer that displays cover/image found in MP3/OGG
-as the icon the files instead of the default icon
+A nautilus thumbnailer for audio files
 
-depends on python2 and  mutagen
+### depends
+* python3 
+* mutagen
