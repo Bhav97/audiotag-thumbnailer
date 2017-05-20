@@ -24,7 +24,9 @@ build() {
 }
 
 package() {
+    cd ${srcdir}/${_pkgname}
 	mkdir -p ${pkgdir}/usr/{share/thumbnailers,bin}
-	install -m644 audiotag.thumbnailer $p"{pkgdir}/usr/share/thumbnailers
-	install -m755 audiotag-thumbnailer ${pkgdir}/usr/bin
+    ls
+	install -m644 audiotag.thumbnailer ${pkgdir}/usr/share/thumbnailers
+	install -m755 audiotag-thumbnailer.py ${pkgdir}/usr/bin
 }
