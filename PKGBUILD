@@ -4,19 +4,18 @@
 pkgname=audiotag-thumbnailer-git
 _pkgname=audiotag-thumbnailer
 pkgver=1.0
-pkgrel=5
-pkgdesc="A nautilus thumbnailer for audio files"
-
+pkgrel=9
+pkgdesc="A thumbnailer for audio files"
 arch=("any")
 url="https://www.github.com/bhav97/audiotag-thumbnailer"
 license=("custom:none")
-depends=("mutagen" "python3")
-source=("git+https://www.github.com/bhav97/audiotag-thumbnailer.git")
+depends=("mutagen" "python3" "python-pillow")
+source=("git+https://github.com/bhav97/audiotag-thumbnailer.git")
 md5sums=("SKIP")
 
-pkver() {
+pkgver() {
 	cd ${srcdir}/${_pkgname}
-	git rev-lisr --count HEAD
+	git rev-list --count HEAD
 }
 
 build() {
@@ -24,9 +23,9 @@ build() {
 }
 
 package() {
-    cd ${srcdir}/${_pkgname}
+	cd ${srcdir}/${_pkgname}
 	mkdir -p ${pkgdir}/usr/{share/thumbnailers,bin}
-    ls
+	mv audio_thumbnailer.py audiotag-thumbnailer
 	install -m644 audiotag.thumbnailer ${pkgdir}/usr/share/thumbnailers
-	install -m755 audiotag-thumbnailer.py ${pkgdir}/usr/bin
+	install -m755 audiotag-thumbnailer ${pkgdir}/usr/bin
 }
