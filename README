@@ -1,14 +1,45 @@
-A thumbnailer for audio files
+audiotag-thumbnailer
+====================
 
-### depends
+A GNOME thumbnailer utility for audio files. It is intended to be called by gnome-desktop’s
+thumbnailer code, but can be called manually as well.
+
+Dependencies
+============
+
 * python3 
 * mutagen
 * PIL/ pillow
 
-### Overlay
+Usage
+=====
+
+Basic Usage:
+$ audiotag-thumbnailer /path/to/audio /path/to/output
+
+Size:
+$ audiotag-thumbnailer /path/to/audio /path/to/output -s=300
+The maximum size of the thumbnail can be specified (in pixels)
+
+Overlay:
+$ audiotag-thumbnailer /path/to/audio /path/to/output -o=/path/to/overlay
 The thumbnailer can add an image as an overlay on the thumbnail
 add `--overlay=/path/to/overlay` to the thumbnailer file's Exec Field
 
-#### Overlay position
+Overlay position:
 The overlay defaults to the bottom right corner of the thumbnail,
 set CORNER in the script for other corners
+
+Installation
+============
+
+The PKGBUILD will need to be changed to install any modified source
+
+Uninstallation
+==============
+
+If some files retain their thumbnails after uninstallation, delete
+* ~/.cache/thumbnails
+* ~/.thumbnails
+
+
