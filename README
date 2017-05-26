@@ -1,5 +1,14 @@
-A nautilus thumbnailer for audio files
+A thumbnailer for audio files
 
 ### depends
 * python3 
 * mutagen
+* PIL/ pillow
+
+### Overlay
+The thumbnailer can add an image as an overlay on the thumbnail
+add `--overlay=/path/to/overlay` to the thumbnailer file's Exec Field
+
+#### Overlay position
+The overlay defaults to the bottom right corner of the thumbnail,
+set CORNER in the script for other corners
