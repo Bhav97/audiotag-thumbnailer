@@ -100,7 +100,7 @@ if __name__ == '__main__':
 			SIZE = sys.argv[i].split("=")
 			try:
 				SIZE = int(SIZE[1])
-			except ValueError as ase:
+			except ValueError:
 				print("Cannot parse integer value \'{}\' for \'{}\'".format(SIZE[1], SIZE[0]))
 				usage()
 				sys.exit(1)
@@ -115,7 +115,7 @@ if __name__ == '__main__':
 
 	ARGC += 1 if SIZE else 0
 	ARGC += 1 if OVERLAY else 0
-
+	SIZE = SIZE if SIZE else DEFAULT_SIZE
 	if len(sys.argv) == ARGC:
 		if OUTPUT_FILE.split(".")[-1] == "png":
 			get_img(INPUT_FILE, SIZE, overlay=OVERLAY).save(OUTPUT_FILE, "png")
